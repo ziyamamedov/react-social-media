@@ -1,0 +1,37 @@
+.chatBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 1rem;
+  width: 300px;
+  height: 300px;
+  border: 1px solid #0000003b;
+  border-radius: 3px;
+  background-color: #b5cdff;
+  margin-bottom: 1rem;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 0.4em;
+  }
+  // &::-webkit-scrollbar-track {
+  //   //box-shadow: inset 0 0 6px rgba(0,0,0,0.00);
+    
+  // }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.541);
+    border-radius: 3px;
+  }
+}
+
+.message {
+  padding: 0.25rem;
+  background-color: rgb(155, 219, 81);
+  margin-bottom: 0.4rem;
+  border-radius: 5px;
+
+  &.recieved {
+    background-color: rgb(81, 168, 219);
+    align-self: flex-start;
+  }
+}

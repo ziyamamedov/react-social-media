@@ -1,0 +1,28 @@
+.friendsList {
+  display: flex;
+  flex-direction: column;
+}
+
+.friendItem {
+  color: red;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.avatarWrapper {
+  margin-right: 1rem;
+}
+.avatar {
+  height: 80px;
+  width: 80px;
+}
+
+.chatLink {
+  color: cornflowerblue;
+  cursor: pointer;
+  margin-right: 3rem;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

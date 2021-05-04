@@ -1,0 +1,18 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.navLink {
+  display: block;
+  padding: .25rem .5rem;
+  border-radius: 3px;
+  margin-bottom: 0.25rem;
+  max-width: 80%;
+  &:hover {
+    background-color: rgba(100, 148, 237, 0.37);
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
