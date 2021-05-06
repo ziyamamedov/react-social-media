@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { RootStateOrAny, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { RootState } from "../../Redux/reducers";
 import styles from "../../styles/Nav.module.scss";
 
 const Nav: React.FC = () => {
-  const navItems = useSelector((store: RootStateOrAny) => store.nav);
+  const navItems = useSelector((store: RootState) => store.nav);
   return (
     <nav className={styles.nav}>
       {navItems.map((item) => (

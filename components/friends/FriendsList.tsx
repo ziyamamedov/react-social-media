@@ -9,9 +9,11 @@ const FriendList: React.FC = () => {
 
   return (
     <List className={styles.friendsList}>
-      {friendsList.map((friend) => (
-        <FriendItem key={friend.id} friend={friend} />
-      ))}
+      {friendsList.length === 0
+        ? "No friends"
+        : friendsList.map((friend) => (
+            <FriendItem key={friend.id} friend={friend} />
+          ))}
     </List>
   );
 };

@@ -5,18 +5,20 @@ interface INavItem {
   url: string;
 }
 
-interface INavItems {
-  [index: number]: INavItem;
-}
-
-const navItems: INavItems = [
+const navItems = [
   { id: 1, body: "Main", url: "/" },
   { id: 2, body: "Friends", url: "/friends" },
-  { id: 3, body: "Music", url: "/music" },
-  { id: 4, body: "Messages", url: "/messages" },
+  { id: 3, body: "Messages", url: "/messages" },
+  { id: 4, body: "Photos", url: "/photos" },
+  { id: 5, body: "Videos", url: "/videos" },
 ];
 
-export const navReducer = (state = navItems, action: actionType): INavItems => {
+export type NavItemsType = typeof navItems;
+
+export const navReducer = (
+  state = navItems,
+  action: actionType
+): NavItemsType => {
   switch (action.type) {
     default:
       return state;
