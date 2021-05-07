@@ -1,13 +1,18 @@
-import Head from "next/head";
-import MainLayout from "../components/layouts/MainLayout";
+import MainLayout from "../../components/layouts/MainLayout";
 import styled from "styled-components";
 import Link from "next/link";
 import { Avatar, Typography } from "@material-ui/core";
 import { useSelector } from "react-redux";
-import { RootState } from "../Redux/reducers";
+import { RootState } from "../../Redux/reducers";
+import { useRouter } from "next/dist/client/router";
 
 export default function Home() {
-  const user = useSelector((state: RootState) => state.users[0]);
+  const router = useRouter();
+
+  const user = useSelector(
+    (state: RootState) => state.users[Number(router.query.id)]
+  );
+
   const friendsList = useSelector((state: RootState) => {
     return user.friends.map((friend) => ({
       name: state.users[friend].name,
@@ -21,7 +26,7 @@ export default function Home() {
         <Sidebar>
           <Avatar
             className="user-avatar"
-            src="images/avatars/ziya.jpg"
+            src={user.photoUrl}
             alt="User photo"
             variant="square"
           ></Avatar>
@@ -62,6 +67,7 @@ export default function Home() {
   );
 }
 
+//Layout styles
 const Container = styled.div`
   display: flex;
 `;
@@ -77,12 +83,12 @@ const Sidebar = styled.div`
     margin-bottom: 1rem;
   }
 `;
-
 const MainBody = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
+//Friends List styles
 const UserFriends = styled.ul`
   display: flex;
   flex-wrap: wrap;

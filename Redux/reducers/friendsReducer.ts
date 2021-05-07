@@ -6,26 +6,26 @@ export type friendType = {
   photoUrl?: string;
 };
 
-const initialFriendsList: Array<friendType> = [
-  { id: 1, name: "Andrey", photoUrl: "../../images/avatars/andrey.jpg" },
-  { id: 2, name: "Rovshan", photoUrl: "../../images/avatars/rovshan.jpg" },
-  { id: 3, name: "Rustam" },
-  { id: 4, name: "Oleg", photoUrl: "../../images/avatars/oleg.jpg" },
-];
+// const initialFriendsList: Array<friendType> = [
+//   { id: 1, name: "Andrey", photoUrl: "../../images/avatars/andrey.jpg" },
+//   { id: 2, name: "Rovshan", photoUrl: "../../images/avatars/rovshan.jpg" },
+//   { id: 3, name: "Rustam" },
+//   { id: 4, name: "Oleg", photoUrl: "../../images/avatars/oleg.jpg" },
+// ];
 
-type friendsListType = typeof initialFriendsList;
+// type friendsListType = typeof initialFriendsList;
 
-export function friendsReducer(
-  state = initialFriendsList,
-  action: actionType
-): friendsListType {
-  switch (action.type) {
-    case DELETE_FRIEND:
-      return state.filter((friend) => friend.id !== action.payload);
-    default:
-      return state;
-  }
-}
+// export function friendsReducer(
+//   state = initialFriendsList,
+//   action: actionType
+// ): friendsListType {
+//   switch (action.type) {
+//     case DELETE_FRIEND:
+//       return state.filter((friend) => friend.id !== action.payload);
+//     default:
+//       return state;
+//   }
+// }
 
 //Delete friend Modal reducer and actions
 
@@ -50,7 +50,7 @@ export function deleteFriendModalReducer(
 //Delete Friend modal action names
 const OPEN_DELETE_FRIEND_MODAL = "OPEN_DELETE_FRIEND_MODAL";
 const CLOSE_DELETE_FRIEND_MODAL = "CLOSE_DELETE_FRIEND_MODAL";
-const DELETE_FRIEND = "DELETE_FRIEND";
+// const DELETE_FRIEND = "DELETE_FRIEND";
 
 //Delete friend-modal action types
 export type DeleteFriendModalActionTypes =
@@ -75,12 +75,12 @@ export const closeDeleteFriendModal = (): CloseDelFriendModalActionType => {
   return { type: CLOSE_DELETE_FRIEND_MODAL };
 };
 
-type DeleteFriendType = {
-  type: typeof DELETE_FRIEND;
-  payload: number;
-};
+// type DeleteFriendType = {
+//   type: typeof DELETE_FRIEND;
+//   payload: number;
+// };
 
 //Friends action-creators
-export const deleteFriend = (id: number): DeleteFriendType => {
-  return { type: DELETE_FRIEND, payload: id };
-};
+// export const deleteFriend = (id: number): DeleteFriendType => {
+//   return { type: DELETE_FRIEND, payload: id };
+// };

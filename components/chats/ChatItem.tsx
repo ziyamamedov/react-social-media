@@ -15,9 +15,7 @@ export interface MessageitemProps {
 }
 
 const ChatItem: React.FC<MessageitemProps> = ({ chat }) => {
-  const person = useSelector((state: RootState) =>
-    state.friends.find((friend) => friend.id === chat.id)
-  );
+  const person = useSelector((state: RootState) => state.users[chat.id]);
   const dispatch = useDispatch();
   const lastMessage = chat.messages[chat.messages.length - 1]
     ? chat.messages[chat.messages.length - 1].body

@@ -15,6 +15,7 @@ import { useDispatch } from "react-redux";
 
 export interface IFriendItemProps {
   friend: friendType;
+  friendsArray: Array<number>;
 }
 const onDelete = (id: number, dispatch: Dispatch) => {
   dispatch(openDeleteFriendModal(id));
@@ -23,7 +24,7 @@ const onDelete = (id: number, dispatch: Dispatch) => {
 const FriendItem: React.FC<IFriendItemProps> = ({ friend }) => {
   const dispatch = useDispatch();
   return (
-    <ListItem key={friend.id}>
+    <ListItem>
       <ListItemAvatar className={styles.avatarWrapper}>
         <Avatar
           className={styles.avatar}

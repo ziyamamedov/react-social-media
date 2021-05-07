@@ -9,16 +9,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../Redux/reducers";
 import {
   closeDeleteFriendModal,
-  deleteFriend,
   DeleteFriendModalActionTypes,
 } from "../../Redux/reducers/friendsReducer";
 import { actionType } from "../../Redux/actions";
+import { deleteFriend } from "../../Redux/reducers/usersReducser";
 
 const handleClose = (dispatch: Dispatch<DeleteFriendModalActionTypes>) => {
   dispatch(closeDeleteFriendModal());
 };
-const handleConfirm = (id: number, dispatch: Dispatch<actionType>) => {
-  dispatch(deleteFriend(id));
+const handleConfirm = (
+  userId: number,
+  friendId: number,
+  dispatch: Dispatch<actionType>
+) => {
+  dispatch(deleteFriend(userId, friendId));
   dispatch(closeDeleteFriendModal());
 };
 
@@ -26,9 +30,7 @@ export default function DeleteFriendModal() {
   const { id, isOpen } = useSelector(
     (state: RootState) => state.deleteFriendModal
   );
-  const friend = useSelector(
-    (state: RootState) => state.friends.filter((friend) => friend.id === id)[0]
-  );
+  const friend = useSelector((state: RootState) => state.users[id]);
   const dispatch = useDispatch();
   return (
     <div>
@@ -51,7 +53,7 @@ export default function DeleteFriendModal() {
             Cancel
           </Button>
           <Button
-            onClick={handleConfirm.bind(null, id, dispatch)}
+            onClick={handleConfirm.bind(null, 0, id, dispatch)}
             color="primary"
             autoFocus
           >

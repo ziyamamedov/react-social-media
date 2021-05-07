@@ -4,10 +4,12 @@ import { deleteFriendModalReducer, friendsReducer } from "./friendsReducer";
 import { chatModalReducer, chatsReducer } from "./chatsReducer";
 import { navReducer } from "./navReducer";
 import { themeReducer } from "./themeReducer";
+import { usersReducer } from "./usersReducser";
 
 const rootReducer = combineReducers({
   nav: navReducer,
-  friends: friendsReducer,
+  users: usersReducer,
+
   theme: themeReducer,
   chats: chatsReducer,
   chatModal: chatModalReducer,

@@ -34,9 +34,7 @@ const ChatModal: React.FC<ChatModalProps> = ({ chats }) => {
   const dispatch = useDispatch();
   const chat = chats.find((elem) => elem.id === modal.id);
   const messages = chat.messages;
-  const friend = useSelector((state: RootState) =>
-    state.friends.find((friend) => friend.id === chat.id)
-  );
+  const friend = useSelector((state: RootState) => state.users[modal.id]);
   const inputEl = useRef(null);
   const chatBox = useRef(null);
   return (
