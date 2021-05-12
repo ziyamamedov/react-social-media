@@ -2,6 +2,7 @@ export type UserType = {
   id: number;
   name: string;
   photoUrl?: string;
+  photos?: Array<string>;
   friends: Array<number>;
 };
 
@@ -13,6 +14,12 @@ const initialUsersList: UsersListType = {
     name: "Ziya",
     photoUrl: "../../images/avatars/ziya.jpg",
     friends: [1, 2, 3, 4],
+    photos: [
+      "../../images/photos/ziya-2.jpg",
+      "../../images/photos/ziya-3.jpg",
+      "../../images/photos/ziya-4.jpg",
+      "../../images/photos/ziya-5.jpg",
+    ],
   },
   1: {
     id: 1,

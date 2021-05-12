@@ -30,7 +30,7 @@ export default function Home() {
             alt="User photo"
             variant="square"
           ></Avatar>
-          <Link href="/friends">
+          <Link href={`/friend/friends/${user.id}`}>
             <FriendsLabel>
               <span className="friends-label__title">Friends</span>
               <span className="friends-label__quan">{user.friends.length}</span>
@@ -57,7 +57,7 @@ export default function Home() {
             assumenda suscipit quidem aliquid ipsam.
           </UserInfo>
           <InfoBar>
-            <Link href="/friends">Friends</Link>
+            <Link href={`/friend/friends/${user.id}`}>Friends</Link>
             <Link href="/photos">Photos</Link>
             <Link href="/videos">Videos</Link>
           </InfoBar>

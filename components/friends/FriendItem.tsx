@@ -1,7 +1,4 @@
-import {
-  friendType,
-  openDeleteFriendModal,
-} from "../../Redux/reducers/friendsReducer";
+import { openDeleteFriendModal } from "../../Redux/reducers/friendsReducer";
 import styles from "../../styles/Friends.module.scss";
 import {
   ListItem,
@@ -12,9 +9,10 @@ import {
 import Link from "next/link";
 import { Dispatch } from "redux";
 import { useDispatch } from "react-redux";
+import { UserType } from "../../Redux/reducers/usersReducser";
 
 export interface IFriendItemProps {
-  friend: friendType;
+  friend: UserType;
   friendsArray: Array<number>;
 }
 const onDelete = (id: number, dispatch: Dispatch) => {
@@ -33,7 +31,11 @@ const FriendItem: React.FC<IFriendItemProps> = ({ friend }) => {
         />
       </ListItemAvatar>
       <ListItemText
-        primary={friend.name}
+        primary={
+          <Link href={`/friend/${friend.id}`}>
+            <a style={{ color: "cornflowerblue" }}>{friend.name}</a>
+          </Link>
+        }
         secondary={
           <span className={styles.secondaryWrapper}>
             <Link

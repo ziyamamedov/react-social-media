@@ -4,9 +4,13 @@ import FriendItem from "./FriendItem";
 import styles from "../../styles/Friends.module.scss";
 import { List } from "@material-ui/core";
 
-const FriendList: React.FC = () => {
+type FriendListProps = {
+  userId: number;
+};
+
+const FriendList: React.FC<FriendListProps> = ({ userId }) => {
   const friendsArray = useSelector(
-    (state: RootState) => state.users[0].friends
+    (state: RootState) => state.users[userId].friends
   );
   const friendsList = useSelector((state: RootState) => {
     return friendsArray.map((friend) => state.users[friend]);
